@@ -1,0 +1,41 @@
+# included templates
+include:
+  # Cypress template
+  - project: "to-be-continuous/cypress"
+    ref: "3.6"
+    file: "templates/gitlab-ci-cypress.yml"
+  # Docker template
+  - project: "to-be-continuous/docker"
+    ref: "5.11"
+    file: "templates/gitlab-ci-docker.yml"
+  # Gitleaks template
+  - project: "to-be-continuous/gitleaks"
+    ref: "2.6"
+    file: "templates/gitlab-ci-gitleaks.yml"
+
+# Define stages
+stages:
+  - build
+  - test
+  - package-build
+  - package-test
+  - acceptance
+  - publish
+  - deploy
+
+# Your AKS deployment job
+deploy_to_aks:
+  stage: deploy
+  image: mcr.microsoft.com/azure-cli:latest
+  script:
+    - az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
+    - az aks get-credentials --resource-group $AZURE_RESOURCE_GROUP --name $AKS_CLUSTER_NAME
+    - apk add --no-cache curl
+    - curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+    - chmod +x ./kubectl
+    - mv ./kubectl /usr/local/bin/kubectl
+    - kubectl apply -f kubernetes/k8s-deployment.yaml
+  only:
+    - main
+  when: manual
+

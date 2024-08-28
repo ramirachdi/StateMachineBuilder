@@ -1,0 +1,344 @@
+/* Common styles for all state nodes */
+.state-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.state-node .state-node-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.state-node .state-type {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.state-node .state-label {
+  font-size: 14px;
+}
+
+.state-node .react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+  border-radius: 50%;
+}
+
+.state-node .react-flow__handle.react-flow__handle-source {
+  left: -4px;
+}
+
+.state-node .react-flow__handle.react-flow__handle-target {
+  right: -4px;
+}
+
+.state-node .react-flow__node.react-flow__node-selected {
+  border-color: #007bff !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.5) !important;
+}
+
+.state-node.selected {
+  border-color: #007bff !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.5) !important;
+}
+/* Styles for specific state node types */
+
+/* Initial State */
+.state-node.initial-state {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: none; /* Remove border */
+
+  .state-node-edit {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .state-node-input {
+    margin-bottom: 5px;
+    width: 150px; /* Increase width */
+    height: 30px; /* Increase height */
+    font-size: 14px; /* Adjust font size if needed */
+    padding: 5px; /* Add padding for better appearance */  }
+  
+  .state-node-label {
+    margin-top: 50px;
+    text-align: center;
+    /* other styles */
+  }
+  .state-node-text {
+    margin-top: 10px; /* Space between the node and the text */
+  }
+}
+
+/* Regular State Node */
+.state-node.regular-state {
+  width: 150px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.state-node-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.state-node-input:focus {
+  border: 1px solid #00f;
+}
+
+
+
+/* styles/state-nodes.css */
+
+/* Final State Node */
+.state-node.final-state {
+  width: 30px; /* Adjust dimensions as needed */
+  height: 30px; /* Adjust dimensions as needed */
+  border-radius: 50%;
+  background-color: black; /* black circle */
+  border: 1px solid #000; /* Black border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For positioning text below the node */
+}
+
+/* Inner circle inside Final State */
+.state-node.final-state .inner-circle {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: #000; /* Black circle */
+}
+
+/* Text and input below the node */
+.state-node.final-state .state-node-text {
+  position: absolute;
+  bottom: -20px; /* Space between the node and text */
+  width: 100%;
+  text-align: center;
+}
+
+.state-node.final-state .state-node-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.state-node.final-state .state-node-input {
+  margin-bottom: 5px;
+  width: 150px; /* Increase width */
+  height: 30px; /* Increase height */
+  font-size: 14px; /* Adjust font size if needed */
+  padding: 5px; /* Add padding for better appearance */
+}
+
+.state-node.final-state .state-node-label {
+  font-size: 14px;
+}
+
+.state-node.final-state .state-node-text {
+  margin-top: 10px; /* Space between the node and the text */
+}
+
+
+/* Choice Node */
+.state-node.choice-node {
+  background-color: #ffc107; /* Yellow */
+  border: 1px solid #ffc107;
+  width: 40px; /* Adjust dimensions as needed */
+  height: 40px; /* Adjust dimensions as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px; /* Adjust padding as needed */
+  transform: rotate(-45deg); /* Rotate the node slightly */
+  transform-origin: center; /* Ensure rotation originates from the center */
+  position: relative; /* Ensure child elements are positioned relative to this node */
+}
+
+/* Text and input below the node */
+.state-node.choice-node .state-node-edit {
+  position: absolute;
+  bottom: -10px; /* Adjust space between the node and text */
+  right: 60%;
+  transform: translateX(-50%) rotate(45deg); /* Center horizontally and counteract node rotation */
+  width: 100%;
+  text-align: center;
+}
+
+.state-node.choice-node .state-node-text,
+.state-node.choice-node .state-node-input {
+  display: inline-block;
+  transform: rotate(0deg); /* Counteract node rotation */
+}
+
+.state-node.choice-node .state-node-text {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.state-node.choice-node .state-node-input {
+  margin-bottom: 5px;
+  width: 150px; /* Adjust width */
+  height: 30px; /* Adjust height */
+  font-size: 14px; /* Adjust font size if needed */
+  padding: 5px; /* Add padding for better appearance */
+}
+
+.state-node.choice-node .state-node-save-button {
+  font-size: 12px; /* Adjust font size if needed */
+  padding: 5px;
+  cursor: pointer;
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+/* Fork State Node */
+.state-node.fork-node {
+  width: 3px; /* Adjust dimensions as needed */
+  height: 120px; /* Adjust dimensions as needed */
+  background-color: #000; /* Black background */
+  border: 1px solid #000; /* Black border */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; /* For positioning text below the node */
+}
+
+/* Text and input below the node */
+.state-node.fork-node .state-node-text {
+  position: absolute;
+  bottom: -20px; /* Space between the node and text */
+  width: 100%;
+  text-align: center;
+}
+
+.state-node.fork-node .state-node-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.state-node.fork-node .state-node-input {
+  margin-bottom: 5px;
+  width: 150px; /* Increase width */
+  height: 30px; /* Increase height */
+  font-size: 14px; /* Adjust font size if needed */
+  padding: 5px; /* Add padding for better appearance */
+}
+
+.state-node.fork-node .state-node-label {
+  font-size: 14px;
+}
+
+.state-node.fork-node .state-node-text {
+  margin-top: 10px; /* Space between the node and the text */
+}
+
+
+
+
+
+/* Join Node */
+.state-node.join-node {
+  background-color: #000; /* Black */
+  border: 1px solid #000;
+  width: 3px; /* Adjust as per your design */
+  height: 120px; /* Adjust as per your design */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; /* For positioning text below the node */
+  padding: 8px; /* Adjust padding as needed */
+}
+
+/* Text and input below the node */
+.state-node.join-node .state-node-text {
+  position: absolute;
+  bottom: -20px; /* Space between the node and text */
+  width: 100%;
+  text-align: center;
+}
+
+.state-node.join-node .state-node-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.state-node.join-node .state-node-input {
+  margin-bottom: 5px;
+  width: 150px; /* Increase width */
+  height: 30px; /* Increase height */
+  font-size: 14px; /* Adjust font size if needed */
+  padding: 5px; /* Add padding for better appearance */
+}
+
+.state-node.join-node .state-node-label {
+  font-size: 14px;
+}
+
+.state-node.join-node .state-node-text {
+  margin-top: 10px; /* Space between the node and the text */
+}
+
+/* Region Node */
+.state-node.region-node {
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border: 1px solid #f90303;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.state-node-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.state-node-input:focus {
+  border: 1px solid rgb(255, 179, 0);
+}

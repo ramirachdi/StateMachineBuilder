@@ -1,0 +1,36 @@
+
+.custom-edge-path {
+  fill: none;
+  stroke: #4CAF50; /* Edge path color */
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.custom-edge-arrow {
+  fill: #4CAF50; /* Arrowhead color */
+}
+
+.custom-edge-text {
+  fill: black; /* Edge text color */
+  font-size: 10px;
+  pointer-events: none; /* Ensure text doesn't interfere with drag events */
+}
+
+.edge-inputs-container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.edge-input-button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edge-input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}

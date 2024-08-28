@@ -1,0 +1,43 @@
+
+.reactflow-wrapper {
+    flex: 1;
+    position: relative;
+    height: 100%;
+  }
+  
+  .react-flow__controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 4;
+  }
+  
+  .react-flow__minimap {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 4;
+  }
+  
+  .react-flow__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

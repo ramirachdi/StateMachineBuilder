@@ -1,0 +1,19 @@
+/* General styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* App container */
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.217);
+}
+
+/* Import other styles */
+@import url('toolbox.css');
+@import url('canvas.css');
+@import url('state-nodes.css');

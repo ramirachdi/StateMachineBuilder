@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: statemachine
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: statemachinefrontend
+  template:
+    metadata:
+      labels:
+        app: statemachinefrontend
+    spec:
+      containers:
+      - name: statemachinefrontend
+        image: ramirachdi/statemachinefrontend:latest
+        ports:
+        - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: statemachinefrontend-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: statemachinefrontend
